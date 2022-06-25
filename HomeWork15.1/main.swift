@@ -140,7 +140,21 @@ class View {
     var backgroundColor: Color
     var tag: Int
     
-    init
+    init(frame: Rect, backgroundColor: Color, tag: Int) {
+        self.frame = frame
+        self.backgroundColor = backgroundColor
+        self.tag = tag
+        
+    }
+    convenience init(frame: Rect, backgroundColor: Color) {
+       self.init(frame: frame, backgroundColor: backgroundColor, tag: 0)
+    }
+    convenience init(frame: Rect) {
+//        self.init(frame: frame, backgroundColor: 0,  tag: 0)
+    }
+    convenience init () {
+        
+    }
     
 }
 
@@ -149,5 +163,19 @@ class View {
 //6. Ստեղծել Class Button որը կժառանգվի View -ից (հետևյալ փրոփրտիներով titleName: String, isSelected: Bool) որը պետք է ունենա հետևյալ init-ները`
 //- init(frame: Rect, titleName: String, isSelected: Bool)
 //- init(frame: Rect, titleName: String)
-//
-//
+
+class Button: View {
+    var titleName: String
+    var isSelected: Bool
+    
+    init(frame: Rect, titleName: String, isSelected: Bool) {
+        self.frame = frame
+        self.titleName = titleName
+        self.isSelected = true
+        
+    }
+    convenience init(frame: Rect, titleName: String) {
+        self.init(frame: frame, titleName: titleName, isSelected: false)
+    }
+    
+}
